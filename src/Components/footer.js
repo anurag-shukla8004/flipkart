@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -10,19 +11,19 @@ function Footer() {
             <h4>Help</h4>
             <ul className="list-unstyled quick-links">
               <li>
-                <a href="">Payments</a>
+                <Link href="">Payments</Link>
               </li>
 
               <li>
-                <a href="">Shipping</a>
+                <Link href="">Shipping</Link>
               </li>
 
               <li>
-                <a href="">Cancellations Return</a>
+                <Link href="">Cancellations Return</Link>
               </li>
 
               <li>
-                <a href="">FAQ</a>
+                <Link href="">FAQ</Link>
               </li>
             </ul>
           </div>
@@ -31,20 +32,20 @@ function Footer() {
             <h4>Lifestyle Store</h4>
             <ul className="list-unstyled quick-links">
               <li>
-                <a href="">Contact Us</a>
+                <Link href="">Contact Us</Link>
               </li>
 
               <li>
-                <a href="">About Us</a>
+                <Link href="">About Us</Link>
               </li>
               <li>
-                <a href="">Careers</a>
+                <Link href="">Careers</Link>
               </li>
               <li>
-                <a href="">Stories</a>
+                <Link href="">Stories</Link>
               </li>
               <li>
-                <a href="">Sell With Us</a>
+                <Link href="">Sell With Us</Link>
               </li>
             </ul>
           </div>
@@ -53,13 +54,13 @@ function Footer() {
             <h4>MISC</h4>
             <ul className="list-unstyled quick-links">
               <li>
-                <a href="">Online Shopping</a>
+                <Link href="">Online Shopping</Link>
               </li>
               <li>
-                <a href="">Gift Card</a>
+                <Link href="">Gift Card</Link>
               </li>
               <li>
-                <a href=""></a>
+                <Link href=""></Link>
               </li>
               Sitemap
             </ul>

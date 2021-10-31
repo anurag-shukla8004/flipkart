@@ -1,6 +1,6 @@
 // import { Height } from "@material-ui/icons";
 import React from "react";
-
+import { Link } from "react-router-dom";
 function Homeproduct(props) {
   return (
     <>
@@ -24,7 +24,7 @@ function Homeproduct(props) {
             }}
           >
             <img
-              style={{ width: "165px", height: "235px" }}
+              style={{ width: "165px", height: "235px", objectFit: "contain" }}
               src={props.image}
               className="img-responsive img-fluid"
               alt=""
@@ -62,9 +62,9 @@ function Homeproduct(props) {
                 </li>
               </ul>
             </div>
-            <a href="#" className="btn btn-primary">
+            <Link href="#" className="btn btn-primary">
               Add to Cart
-            </a>
+            </Link>
           </div>
         </div>
       </div>

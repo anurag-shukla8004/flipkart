@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -17,13 +18,13 @@ function Navbar() {
             >
               <i className="fa fa-bars"></i>
             </button>
-            <a className="navbar-brand" href="#">
+            <Link className="navbar-brand" href="#">
               <img
                 style={{ width: "50px", height: "35px" }}
                 src="https://cdn.icon-icons.com/icons2/729/PNG/512/flipkart_icon-icons.com_62718.png"
                 alt=""
               />
-            </a>
+            </Link>
           </div>
 
           <div className="collapse navbar-collapse" id="myNavbar">
@@ -41,17 +42,17 @@ function Navbar() {
             </form>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <a href="">
+                <Link href="">
                   <span className="glyphicon glyphicon-shopping-cart"></span>{" "}
                   Cart
                   <span className="badge"></span>
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href="">
+                <Link href="">
                   <span className="glyphicon glyphicon-log-out"></span> Logout
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -78,17 +79,17 @@ function Navbar() {
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li>
-                  <a href="#">Footwear</a>
+                  <Link href="#">Footwear</Link>
                 </li>
                 <li>
-                  <a href="#">Top wear</a>
+                  <Link href="#">Top wear</Link>
                 </li>
                 <li>
-                  <a href="#">Sports wear</a>
+                  <Link href="#">Sports wear</Link>
                 </li>
                 <li role="separator" className="divider"></li>
                 <li>
-                  <a href="#">Separated link</a>
+                  <Link href="#">Separated link</Link>
                 </li>
               </ul>
             </div>
@@ -108,17 +109,17 @@ function Navbar() {
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li>
-                  <a href="#">Action</a>
+                  <Link href="#">Action</Link>
                 </li>
                 <li>
-                  <a href="#">Another action</a>
+                  <Link href="#">Another action</Link>
                 </li>
                 <li>
-                  <a href="#">Something else here</a>
+                  <Link href="#">Something else here</Link>
                 </li>
                 <li role="separator" className="divider"></li>
                 <li>
-                  <a href="#">Separated link</a>
+                  <Link href="#">Separated link</Link>
                 </li>
               </ul>
             </div>
@@ -138,17 +139,17 @@ function Navbar() {
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li>
-                  <a href="#">Action</a>
+                  <Link href="#">Action</Link>
                 </li>
                 <li>
-                  <a href="#">Another action</a>
+                  <Link href="#">Another action</Link>
                 </li>
                 <li>
-                  <a href="#">Something else here</a>
+                  <Link href="#">Something else here</Link>
                 </li>
                 <li role="separator" className="divider"></li>
                 <li>
-                  <a href="#">Separated link</a>
+                  <Link href="#">Separated link</Link>
                 </li>
               </ul>
             </div>
@@ -168,17 +169,17 @@ function Navbar() {
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li>
-                  <a href="#">Mobiles</a>
+                  <Link href="#">Mobiles</Link>
                 </li>
                 <li>
-                  <a href="#">Laptops</a>
+                  <Link href="#">Laptops</Link>
                 </li>
                 <li>
-                  <a href="#">Accessories</a>
+                  <Link href="#">Accessories</Link>
                 </li>
                 <li role="separator" className="divider"></li>
                 <li>
-                  <a href="#">Separated link</a>
+                  <Link href="#">Separated link</Link>
                 </li>
               </ul>
             </div>
@@ -198,17 +199,17 @@ function Navbar() {
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li>
-                  <a href="#">Action</a>
+                  <Link href="#">Action</Link>
                 </li>
                 <li>
-                  <a href="#">Another action</a>
+                  <Link href="#">Another action</Link>
                 </li>
                 <li>
-                  <a href="#">Something else here</a>
+                  <Link href="#">Something else here</Link>
                 </li>
                 <li role="separator" className="divider"></li>
                 <li>
-                  <a href="#">Separated link</a>
+                  <Link href="#">Separated link</Link>
                 </li>
               </ul>
             </div>

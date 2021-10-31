@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import Homeproduct from "./homeproduct";
 import styled from "styled-components";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
+const Grid = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+`;
 function Home() {
   const [homeProductData, updatehomeProductData] = useState([]);
-  const Grid = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  `;
+
   useEffect(() => {
     console.log("in effect");
     axios.get("https://fakestoreapi.com/products").then((req) => {
@@ -44,38 +46,38 @@ function Home() {
             <nav aria-label="Page navigation">
               <ul className="pagination">
                 <li className="disabled">
-                  <a href="#" aria-label="Previous">
+                  <Link href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="active">
-                  <a href="#">1</a>
+                  <Link href="#">1</Link>
                 </li>
                 <li>
-                  <a href="#">2</a>
+                  <Link href="#">2</Link>
                 </li>
                 <li>
-                  <a href="#">3</a>
+                  <Link href="#">3</Link>
                 </li>
                 <li>
-                  <a href="#">4</a>
+                  <Link href="#">4</Link>
                 </li>
                 <li>
-                  <a href="#">5</a>
+                  <Link href="#">5</Link>
                 </li>
                 <li>
-                  <a href="#">6</a>
+                  <Link href="#">6</Link>
                 </li>
                 <li>
-                  <a href="#">7</a>
+                  <Link href="#">7</Link>
                 </li>
                 <li>
-                  <a href="#">8</a>
+                  <Link href="#">8</Link>
                 </li>
                 <li>
-                  <a href="#" aria-label="Next">
+                  <Link href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
