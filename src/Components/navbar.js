@@ -18,7 +18,11 @@ function Navbar() {
               <i className="fa fa-bars"></i>
             </button>
             <a className="navbar-brand" href="#">
-              Lifestyle Store
+              <img
+                style={{ width: "50px", height: "35px" }}
+                src="https://cdn.icon-icons.com/icons2/729/PNG/512/flipkart_icon-icons.com_62718.png"
+                alt=""
+              />
             </a>
           </div>
 
