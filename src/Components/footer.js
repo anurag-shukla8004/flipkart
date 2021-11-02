@@ -7,7 +7,10 @@ function Footer() {
       <footer className="page-footer container-fluid col-sm-12">
         <hr />
         <div className="container">
-          <div className="col-sm-4">
+          <div
+            className="col-sm-4"
+            style={{ display: "flex", flexDirection: "column" }}
+          >
             <h4>Help</h4>
             <ul className="list-unstyled quick-links">
               <li>

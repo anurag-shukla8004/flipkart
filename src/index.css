@@ -6,8 +6,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
 }
 
 code {
@@ -87,7 +85,7 @@ section .desc button:hover {
 }
 
 footer {
-  position: relative;
+  /* position: relative; */
 
   color: #565656;
   width: 100%;
@@ -102,7 +100,7 @@ footer .container .col-sm-4 ul li a:hover {
 
 footer .container-fluid span {
   font-size: 30px;
-  position: absolute;
+  /* position: absolute; */
   top: 25%;
   left: 12%;
 }

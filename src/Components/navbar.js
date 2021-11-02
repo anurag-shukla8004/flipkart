@@ -6,7 +6,7 @@ function Navbar() {
     <>
       <nav
         className="navbar navbar-dark navbar-relative-top"
-        style={{ backgroundColor: "#2874f0" }}
+        style={{ backgroundColor: "#2874f0", margin: "0px" }}
       >
         <div className="container">
           <div className="navbar-header">
@@ -18,7 +18,7 @@ function Navbar() {
             >
               <i className="fa fa-bars"></i>
             </button>
-            <Link className="navbar-brand" href="#">
+            <Link className="navbar-brand" to="/">
               <img
                 style={{ width: "50px", height: "35px" }}
                 src="https://cdn.icon-icons.com/icons2/729/PNG/512/flipkart_icon-icons.com_62718.png"
@@ -60,7 +60,11 @@ function Navbar() {
       </nav>
       <div
         className="menu container-fluid text-center hidden-xs"
-        style={{ position: "relative top:4em", paddingBottom: "5px" }}
+        style={{
+          position: "relative top:4em",
+          paddingBottom: "9px",
+          paddingTop: "9px",
+        }}
       >
         <div className="container-fluid">
           <div className="row">

@@ -11,16 +11,20 @@ const Grid = styled.div`
   justify-content: center;
   width: 100%;
 `;
-function Home() {
+function Home(pro) {
   const [homeProductData, updatehomeProductData] = useState([]);
+  const [ProductData, updateProductData] = useState([]);
 
+  const update = (props) => {
+    pro.datadetails(props);
+  };
   useEffect(() => {
-    console.log("in effect");
     axios.get("https://fakestoreapi.com/products").then((req) => {
       updatehomeProductData(req.data);
-      console.log(1);
     });
+    // console.log(updateProductData);
   }, []);
+
   return (
     <>
       <header>
@@ -39,6 +43,11 @@ function Home() {
             name={data.title}
             image={data.image}
             price={data.price}
+            transfer={update}
+            details={data.description}
+            category={data.category}
+            rating={data.rating.rate}
+            count={data.rating.count}
           />
         ))}
         <div className="container col-sm-10 col-sm-offset-1 page">
