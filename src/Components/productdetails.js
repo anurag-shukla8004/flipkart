@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Productdetails(props) {
+  // localStorage.setItem("Name", JSON.stringify(props));
   return (
     <>
       <div className="col-sm-5">
@@ -75,7 +76,7 @@ function Productdetails(props) {
           </div>
 
           <div>
-            <h3>Rs 92,400</h3>
+            <h3>$ {props.price}</h3>
           </div>
 
           <div>
