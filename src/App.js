@@ -4,15 +4,23 @@ import Home from "./Components/home";
 import Footer from "./Components/footer";
 import Productdetails from "./Components/productdetails";
 import React, { useState } from "react";
+import SearchProducts from "./Components/searchProducts";
 
 function App() {
   const [productData, updateProductData] = useState("");
+  const [count, updateCount] = useState(1);
 
   const productdata = (data) => {
     updateProductData(data);
+    updateCount(count + 1);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     // console.log(data.rateing);
   };
-  console.log(productData);
+  // console.log(productData);
+  React.useEffect(() => {}, []);
   return (
     <div className="App">
       <Router>
@@ -32,6 +40,9 @@ function App() {
               rating={productData.rating}
               count={productData.count}
             />
+          </Route>
+          <Route exact path="/searchproducts">
+            <SearchProducts />
           </Route>
         </Switch>
         <Footer />

@@ -1,10 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link, useLocation } from "react-router-dom";
 
 function Productdetails(props) {
-  // localStorage.setItem("Name", JSON.stringify(props));
+  // localStorage.setItem("Name", JSON.stringify(homeProductData));
+  const [ProductData, updateProductData] = useState({});
+  const [successCondition, updateSuccessCondition] = useState(false);
+  const search = useLocation().search;
+  const id = new URLSearchParams(search).get("name");
+
+  useEffect(() => {
+    axios.get(`https://fakestoreapi.com/products/${id}`).then((req) => {
+      updateProductData(req.data);
+    });
+  }, []);
+  console.log(ProductData?.rating?.rate);
+
   return (
     <>
+      <div className={successCondition ? "success" : "successcard"}>
+        <div>
+          <h2 style={{ color: "#32cd80" }}>Order Successfully</h2>
+          <h3>OrderId: {ProductData.id}993</h3>
+          <img
+            src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Tick_Mark_Dark-512.png"
+            alt=""
+          />
+          <button
+            onClick={() => {
+              updateSuccessCondition(false);
+            }}
+          >
+            Done
+          </button>
+        </div>
+      </div>
       <div className="col-sm-5">
         <div className="thumbnail">
           <img
@@ -13,7 +43,7 @@ function Productdetails(props) {
               height: "460px",
               objectFit: "contain",
             }}
-            src={props.image}
+            src={ProductData.image}
             className="img-responsive"
             alt=""
           />
@@ -34,6 +64,9 @@ function Productdetails(props) {
 
               <button
                 className="btn col-sm-4 col-sm-offset-1 btn-lg"
+                onClick={() => {
+                  updateSuccessCondition(true);
+                }}
                 style={{
                   backgroundColor: "#fb641b",
                   color: "#fff",
@@ -57,26 +90,26 @@ function Productdetails(props) {
             <li>
               <Link to="#">Home</Link>
             </li>
-            <li className="active">{props.name}</li>
+            <li className="active">{ProductData.title}</li>
           </ol>
 
-          <h4>{props.name}</h4>
+          <h4>{ProductData.title}</h4>
 
           <div className="row">
             <div className="col-sm-2">
               <span className="label label-success">
-                {props.rating}{" "}
-                <span className="glyphicon glyphicon-star"></span>
+                {ProductData?.rating?.rate}{" "}
+                <span className="glyphicon glyphicon-star"></span>{" "}
               </span>
             </div>
 
             <div className="col-sm-5">
-              <strong>{props.count} Ratings &amp; Reviews</strong>
+              <strong>{ProductData?.rating?.rate} Ratings &amp; Reviews</strong>
             </div>
           </div>
 
           <div>
-            <h3>$ {props.price}</h3>
+            <h3>$ {ProductData.price}</h3>
           </div>
 
           <div>
@@ -172,20 +205,20 @@ function Productdetails(props) {
             <div className="panel-body">
               <div className="col-sm-12">
                 <h3>PRODUCT DESCRIPTION</h3>
-                <p>{props.details}</p>
+                <p>{ProductData.description}</p>
               </div>
             </div>
             <hr />
             <div className="panel-body">
               <div className="col-sm-12">
                 <div className="col-sm-8">
-                  <h3>{props.category}</h3>
-                  <p>{props.details}</p>
+                  <h3>{ProductData.category}</h3>
+                  <p>{ProductData.description}</p>
                 </div>
 
                 <div className="col-sm-4">
                   <img
-                    src="https://rukminim1.flixcart.com/image/200/200/j9338nk0/mobile/g/u/h/apple-iphone-8-plus-mq8f2hn-Link-original-imaeyym9hdbqaxhp.jpeg?q=90"
+                    src={ProductData.image}
                     className="img-responsive"
                     alt=""
                   />
@@ -197,7 +230,7 @@ function Productdetails(props) {
               <div className="col-sm-12">
                 <div className="col-sm-4">
                   <img
-                    src="https://rukminim1.flixcart.com/image/200/200/j9338nk0/mobile/g/u/h/apple-iphone-8-plus-mq8f2hn-Link-original-imaeyynjb4vxrdgd.jpeg?q=90"
+                    src={ProductData.image}
                     className="img-responsive"
                     alt=""
                   />

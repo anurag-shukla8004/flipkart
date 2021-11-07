@@ -1,12 +1,66 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-function Navbar() {
+function Navbar(event) {
+  const [searchQuery, updateSearchQuery] = useState("");
+  const [searcharray, updateSearcharray] = useState([]);
+  const [toggleClass, setToggleClass] = useState(false);
+  const [time, updatetime] = useState();
+  let data;
+  const history = useHistory();
+  const fetchData = (searchString) => {};
+
+  const uparray = () => {
+    console.log(searcharray, "history");
+  };
+
+  useEffect(() => {
+    console.log(searchQuery);
+
+    clearTimeout(time);
+    const Timeout = setTimeout(() => {
+      axios
+        .get(`https://fakestoreapi.com/products/category/${searchQuery}`)
+        .then((req) => {
+          updateSearcharray(req.data);
+          console.log(searcharray);
+          console.log(req.data);
+          setToggleClass(true);
+          history.push({
+            pathname: "/searchproducts",
+            state: {
+              update: req.data,
+            },
+          });
+        }, 500);
+      updatetime(Timeout);
+      searchProduct();
+    });
+  }, [searchQuery]);
+
+  const searchProduct = () => {
+    // // console.log(event.target.value);
+    // clearTimeout(time);
+    // console.log(event);
+    // updateSearchQuery(event);
+    // const Timeout = setTimeout(() => {
+    //   fetchData(event);
+    // }, 500);
+    // updatetime(Timeout);
+    console.log(searcharray);
+  };
+
   return (
     <>
       <nav
         className="navbar navbar-dark navbar-relative-top"
-        style={{ backgroundColor: "#2874f0", margin: "0px" }}
+        style={{
+          backgroundColor: "#2874f0",
+          margin: "0px",
+          paddingBottom: "10px",
+        }}
       >
         <div className="container">
           <div className="navbar-header">
@@ -20,27 +74,57 @@ function Navbar() {
             </button>
             <Link className="navbar-brand" to="/">
               <img
-                style={{ width: "50px", height: "35px" }}
-                src="https://cdn.icon-icons.com/icons2/729/PNG/512/flipkart_icon-icons.com_62718.png"
+                style={{ width: "150px", height: "35px" }}
+                src="https://img1a.flixcart.com/www/linchpin/fk-cp-zion/img/fk-logo_9fddff.png"
                 alt=""
               />
             </Link>
           </div>
 
           <div className="collapse navbar-collapse" id="myNavbar">
-            <form className="navbar-form navbar-left">
+            <form
+              onSubmit={(event) => event.preventDefault()}
+              className="navbar-form navbar-left"
+              style={{ top: "8px" }}
+            >
               <div className="form-group">
                 <input
+                  style={{ width: "275px" }}
                   type="text"
+                  value={searchQuery}
                   className="form-control"
                   placeholder="Search"
+                  onChange={(e) => updateSearchQuery(e.target.value)}
                 />
+                <button type="submit" className="btn btn-default">
+                  <span className="glyphicon glyphicon-search"></span>
+                </button>
               </div>
-              <button type="submit" className="btn btn-default">
-                <span className="glyphicon glyphicon-search"></span>
-              </button>
+              <div
+                className={!searcharray.length ? "suggestion-box" : ""}
+                style={{
+                  position: "absolute",
+                  width: "275px",
+                  height: "150px",
+                  zIndex: "11",
+                  top: "35px",
+                  background: "#fafafa",
+                  overflow: "scroll",
+                }}
+              >
+                <ul className="suggestion-ul">
+                  {searcharray.map((value, index) => (
+                    <li key={value.id} id={index}>
+                      {value.title}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </form>
-            <ul className="nav navbar-nav navbar-right">
+            <ul
+              className="nav navbar-nav navbar-right"
+              style={{ marginTop: "10px" }}
+            >
               <li>
                 <Link href="">
                   <span className="glyphicon glyphicon-shopping-cart"></span>{" "}

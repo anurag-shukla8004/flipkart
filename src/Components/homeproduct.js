@@ -6,9 +6,12 @@ function Homeproduct(props) {
       <div
         className="col-sm-3"
         style={{ marginBottom: "20px" }}
-        onClick={() => props.transfer(props)}
+        // onClick={() => props.transfer(props)}
       >
-        <Link to="/productsdetails" style={{ textDecoration: "none" }}>
+        <Link
+          to={`/productsdetails/?name=${props.id}`}
+          style={{ textDecoration: "none" }}
+        >
           <div
             className="thumb-wrapper"
             style={{
@@ -71,7 +74,10 @@ function Homeproduct(props) {
                 </ul>
               </div>
 
-              <Link to="/" className="btn btn-primary">
+              <Link
+                to={`/productsdetails/?name=${props.id}`}
+                className="btn btn-primary"
+              >
                 Add to Cart
               </Link>
             </div>

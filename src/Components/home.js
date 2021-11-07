@@ -13,7 +13,6 @@ const Grid = styled.div`
 `;
 function Home(pro) {
   const [homeProductData, updatehomeProductData] = useState([]);
-  const [ProductData, updateProductData] = useState([]);
 
   const update = (props) => {
     pro.datadetails(props);

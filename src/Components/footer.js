@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Footer() {
+  React.useEffect(() => {
+    window.scrollTo({
+      top: 0,
+
+      behavior: "smooth",
+    });
+  }, []);
+
   return (
     <>
       <footer className="page-footer container-fluid col-sm-12">
