@@ -178,14 +178,20 @@ function Productdetails(props) {
             </Link>
           </div>
         </div>
-        <div id="delivery-time" style={{ position: "relative", left: "15%" }}>
+        <div
+          id="delivery-time"
+          style={{
+            position: "relative",
+            left: "-34%",
+            display: "flex",
+            flexDirection: "column",
+            top: "24",
+          }}
+        >
           <h5>
             Delivery in 3-4 days |{" "}
             <Link style={{ color: "green", textDecoration: "none" }}>Free</Link>
           </h5>
-
-          <br />
-          <br />
 
           <div id="highlights">
             <strong className="col-xs-3">Highlights</strong>
