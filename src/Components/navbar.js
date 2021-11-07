@@ -7,6 +7,7 @@ function Navbar(event) {
   const [searchQuery, updateSearchQuery] = useState("");
   const [searcharray, updateSearcharray] = useState([]);
   const [toggleClass, setToggleClass] = useState(false);
+  const [suggestionBox, setSuggestionBox] = useState(false);
   const [time, updatetime] = useState();
   let data;
   const history = useHistory();
@@ -24,9 +25,13 @@ function Navbar(event) {
       axios
         .get(`https://fakestoreapi.com/products/category/${searchQuery}`)
         .then((req) => {
+          if (req) {
+            req.data.length ? searchProduct() : setSuggestionBox(false);
+          }
+
           updateSearcharray(req.data);
           console.log(searcharray);
-          console.log(req.data);
+          console.log(req.data.length);
           setToggleClass(true);
           history.push({
             pathname: "/searchproducts",
@@ -36,20 +41,17 @@ function Navbar(event) {
           });
         }, 500);
       updatetime(Timeout);
-      searchProduct();
     });
   }, [searchQuery]);
 
   const searchProduct = () => {
     // // console.log(event.target.value);
-    // clearTimeout(time);
-    // console.log(event);
-    // updateSearchQuery(event);
-    // const Timeout = setTimeout(() => {
-    //   fetchData(event);
-    // }, 500);
-    // updatetime(Timeout);
-    console.log(searcharray);
+
+    setSuggestionBox(true);
+    const Timeout = setTimeout(() => {
+      setSuggestionBox(false);
+    }, 2000);
+    updatetime(Timeout);
   };
 
   return (
@@ -101,7 +103,7 @@ function Navbar(event) {
                 </button>
               </div>
               <div
-                className={!searcharray.length ? "suggestion-box" : ""}
+                className={!suggestionBox ? "suggestion-box" : ""}
                 style={{
                   position: "absolute",
                   width: "275px",
